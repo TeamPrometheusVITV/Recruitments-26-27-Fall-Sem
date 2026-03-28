@@ -56,7 +56,7 @@ Your challenge is to:
 
 You may assign team members to multiple overlapping tasks, but ensure workloads and scheduling are realistic.
 
-Here are the [tasks](./Tasks/demo_scenario_1.md)
+Here are the [tasks](./demo_scenario_1.md)
 
 
 
