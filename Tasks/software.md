@@ -4,144 +4,57 @@
 
 ## Welcome to the recruitment process for the RoboCup Humainoid Kid's sized league Software team! This repository contains two tasks designed to evaluate your understanding of computer vision, machine learning, and data processing in the context of robotic soccer.
 
-# Task 1: A-Star vs. BFS Pathfinding Mini-Challenge
-
-## Overview
-
-Your goal is to find the most efficient path for a robot on a grid to reach a ball, avoiding obstacles. You will implement and compare two classic algorithms, BFS and A\*, on a single, pre-defined field to see how they perform.
-
----
-
-## Part 1: Setup & Algorithm Implementation
-
-### 1.1 The Field
-
-Instead of generating multiple fields, you will use this one 10x10 grid. Represent it as a 2D list or NumPy array.
-
-Example:
-
-```python
-# 0=Empty, 1=Obstacle, 2=Robot, 3=Ball
+## Task 1: Djikstra vs Greedy Best First Search path finding algorithm
+Use this single 10x10 grid for all parts of the task. Represent it as a 2D list or NumPy array.
+python
+# 0=Empty, 1=Shelf (obstacle), 2=Robot, 3=Package
 grid = [
-    [0, 0, 0, 0, 0, 0, 1, 0, 0, 0],
-    [0, 2, 0, 1, 0, 0, 1, 3, 0, 0], # Robot at (1,1), Ball at (1,7)
+    [0, 0, 0, 1, 0, 0, 0, 1, 0, 0],
+    [0, 1, 0, 1, 0, 1, 0, 1, 0, 0],
+    [0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+    [0, 1, 0, 0, 0, 1, 0, 0, 1, 0],
+    [0, 0, 0, 1, 0, 0, 0, 0, 1, 0],
+    [0, 0, 0, 1, 0, 0, 1, 0, 1, 0],
     [0, 0, 0, 1, 0, 0, 1, 0, 0, 0],
-    [0, 1, 1, 1, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 1, 0, 1, 0, 0],
-    [0, 0, 1, 0, 0, 1, 0, 1, 0, 0],
-    [0, 0, 1, 0, 0, 1, 0, 1, 0, 0],
-    [0, 0, 1, 0, 0, 0, 0, 1, 0, 0],
-    [0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    [1, 1, 0, 0, 0, 0, 1, 0, 0, 0],
+    [0, 0, 0, 0, 1, 0, 0, 0, 1, 0],
+    [0, 2, 0, 0, 0, 0, 0, 0, 3, 0],
 ]
-start_pos = (1, 1)
-goal_pos = (1, 7)
-```
+start_pos = (9, 1)   # Robot starts bottom-left area
+goal_pos  = (9, 8)   # Package is bottom-right area
+Create your own grid (keeping the same legend) and use it throughout.
 
-Create your own grid and use it.
+## 1.2 Implement Algorithms
 
----
+Implement **two functions**, each accepting the grid, a start position, and a goal position as inputs. The robot may move **Up, Down, Left, and Right** only (no diagonals).
 
-### 1.2 Implement Algorithms
+### Algorithm 1 — Dijkstra's Algorithm
+A cost-based search that finds the lowest-cost path. Treat every move as having a uniform cost of 1 (equivalent to BFS on an unweighted grid), but structure your implementation using a **priority queue** keyed on cumulative cost. This prepares it for weighted grids in Part 1.3.
 
-Implement two functions that take the grid, start, and goal positions as input. The robot can move Up, Down, Left, and Right.
+### Algorithm 2 — Greedy Best-First Search
+A heuristic-driven algorithm that always expands the node that *looks* closest to the goal, without tracking actual path cost. Use **Manhattan Distance** as the heuristic:
 
-1. **Breadth-First Search (BFS):**
-   An algorithm that explores layer-by-layer. It's guaranteed to find the shortest path in terms of steps.
+h = |row1 - row2| + |col1 - col2|
+Each function must return:
+•	The final path — an ordered list of (row, col) coordinates from start to goal (inclusive)
+•	The number of nodes explored during the search
 
-2. **A\* Search:**
-   A "smarter" algorithm that uses a heuristic to guide its search.
-   Use the Manhattan Distance for your heuristic:
-   `h = |x1 - x2| + |y1 - y2|`
-
-Each function should return two things:
-
-- The final path (a list of coordinates)
-- The number of nodes explored
-
----
-
-## Part 2: Visualization & Evaluation
-
-### 2.1 Visualize the Paths
-
-Create two visualizations using matplotlib—one for the BFS result and one for the A\* result. Each plot should clearly show:
-
-- The grid with obstacles
-- The final path taken by the robot
-
----
-
-### 2.2 Compare the Results
-
-Run both algorithms on the grid and print the key results to the screen.
-
-Example output:
-
-```
-BFS Algorithm:
-Path Length: 12
-Nodes Explored: 58
-
-A* Algorithm:
-Path Length: 12
-Nodes Explored: 25
-```
-
-This direct comparison is enough to see the difference in efficiency.
-
----
-
+## Task 2: Ball Detection Dataset & Model Training
+### Overview
+In this task, you will:
+- **Create a Ball Detection Dataset**
+  - Use Roboflow to build your own dataset for ball detection
+  - Limited to 20 images maximum
+  - Focus on understanding the basics of dataset creation
+- **Train a Detection Model**
+  - Train your model using free GPU resources (Kaggle or Google Colab)
+  - Optionally incorporate open source datasets
+  - Extra points for well-curated datasets
 ### Deliverables
-
-A single Jupyter Notebook (`.ipynb`) containing:
-
-1. The code for your BFS and A\* implementations.
-2. The two output visualizations (one for each algorithm's path).
-3. The final printout of the path length and nodes explored for both algorithms.
-
----
-
-## **Task 2: Transfermarkt Football Data Analysis & Valuation Modeling**
-
-### **Overview**
-
-Work with the **Transfermarkt Football Player Dataset** from Kaggle, which includes detailed player valuations, performance records, and updates.
-Your goal is to **analyze**, **interpret**, and optionally **predict** player market values based on performance and attributes.
-
----
-
-### **Part 1: Exploratory Data Analysis (EDA)**
-
-Create at least **three visualizations** that provide meaningful insights into player performance, valuation, and financial trends across clubs and leagues.
-Each visualization should include a short interpretation explaining the observed trend or relationship.
-
----
-
-### **Part 2: (Optional) Simple ML Application**
-
-Develop a basic **machine learning model** over the dataset you have conducted EDA on and reason why you arrived at that decision.
-
----
-
-### **Deliverables**
-
-* A **Jupyter Notebook (.ipynb)** or **Kaggle/Colab link** containing:
-
-  * Complete data analysis and visualizations
-  * Interpretations and key findings
-  * (Optional) Machine learning model and evaluation metrics
-* At least **three labeled visualizations** with clear explanations
-* A **short written summary** of your methodology, insights, and conclusions
-
----
-## Resources
-
-- **Dataset:** Football Data from Transfermarkt on Kaggle
-- **Tools:** Kaggle Notebooks, Google Colab, or a local Jupyter environment
-- **Python Libraries:** `pandas`, `matplotlib`, `seaborn`, `scikit-learn`
-
----
+- Trained model file (`.pt`, `.pth`, `.bin`, `.onnx`, `.t5`, or other standard format)
+- Screenshot of your Roboflow dataset
+- Link to any open source dataset used (if applicable)
+- Brief explanation of your methodology and approach
 
 ## Notes
 
