@@ -22,7 +22,7 @@ Welcome to the Team Prometheus recruitment process! We are a newly formed team p
 - **Submission Requirement:**  
   You must submit at least one assignment (preferably more) by the deadline to qualify for Round 3.
 - **Submission Method:**  
-  Please submit your work via the Google Form shared on our [WhatsApp Group](https://chat.whatsapp.com/HH6HOzI6gQxCN8q5zA3yEk).
+  Please submit your work via the Google Form shared on our [WhatsApp Group](https://chat.whatsapp.com/G3rd3rROMZWBjs7mOnSg5h).
 
 ---
 
