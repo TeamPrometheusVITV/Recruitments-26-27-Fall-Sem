@@ -35,10 +35,12 @@ A cost-based search that finds the lowest-cost path. Treat every move as having 
 ### Algorithm 2 — Greedy Best-First Search
 A heuristic-driven algorithm that always expands the node that *looks* closest to the goal, without tracking actual path cost. Use **Manhattan Distance** as the heuristic:
 
+```
 h = |row1 - row2| + |col1 - col2|
 Each function must return:
 •	The final path — an ordered list of (row, col) coordinates from start to goal (inclusive)
 •	The number of nodes explored during the search
+```
 
 ## Task 2: Ball Detection Dataset & Model Training
 ### Overview
