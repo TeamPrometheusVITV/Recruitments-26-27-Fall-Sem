@@ -6,6 +6,7 @@
 
 ## Task 1: Djikstra vs Greedy Best First Search path finding algorithm
 Use this single 10x10 grid for all parts of the task. Represent it as a 2D list or NumPy array.
+```
 python
 # 0=Empty, 1=Shelf (obstacle), 2=Robot, 3=Package
 grid = [
@@ -23,7 +24,7 @@ grid = [
 start_pos = (9, 1)   # Robot starts bottom-left area
 goal_pos  = (9, 8)   # Package is bottom-right area
 Create your own grid (keeping the same legend) and use it throughout.
-
+```
 ## 1.2 Implement Algorithms
 
 Implement **two functions**, each accepting the grid, a start position, and a goal position as inputs. The robot may move **Up, Down, Left, and Right** only (no diagonals).

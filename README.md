@@ -30,11 +30,7 @@ Welcome to the Team Prometheus recruitment process! We are a newly formed team p
 
 1. **Software Recruitment Tasks**  
    👉 [Details and Assignment](./Tasks/software.md)
-2. **Mechanical Recruitment Tasks**  
-   👉 [Details and Assignment](./Tasks/mechanical.md)
-3. **Electrical Recruitment Tasks**  
-   👉 [Details and Assignment](./Tasks/electrical.md)
-4. **Management Recruitment Tasks**  
+2. **Management Recruitment Tasks**  
    👉 [Details and Assignment](./Tasks/management.md)
 
 ---
